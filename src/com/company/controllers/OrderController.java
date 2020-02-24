@@ -1,4 +1,4 @@
-package com.controllers;
+package com.company.controllers;
 
 import com.company.decorator.PizzaOrderExtraIngerdientsAdder;
 import com.company.facade.PizzaOrderFacade;

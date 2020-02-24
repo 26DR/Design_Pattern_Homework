@@ -1,11 +1,11 @@
 package com.company;
 
+import com.company.controllers.OrderController;
 import com.company.decorator.ExtraCheese;
 import com.company.factories.BasePizzaFactory;
 import com.company.factories.PizzaFactory;
 import com.company.impl.PizzaOrderFacadeImpl;
 import com.company.products.PizzaOrder;
-import com.controllers.OrderController;
 
 public class Main {
 
