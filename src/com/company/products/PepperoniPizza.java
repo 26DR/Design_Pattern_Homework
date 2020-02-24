@@ -2,12 +2,12 @@ package com.company.products;
 
 public class PepperoniPizza extends Pizza{
 
-    public PepperoniPizza(String nameOfThePizza, double priceOfThePizza) {
-        super(nameOfThePizza, priceOfThePizza);
+    public PepperoniPizza(String nameOfThePizza, double priceOfThePizza, String ingredients) {
+        super(nameOfThePizza, priceOfThePizza, ingredients);
     }
 
     @Override
-    public void addIngredients() {
-        System.out.println("Adding ingredients for pepperoni pizza");
+    public String addIngredients() {
+        return getIngredients();
     }
 }
