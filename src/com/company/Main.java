@@ -1,10 +1,11 @@
 package com.company;
 
 import com.company.decorator.ExtraCheese;
-import com.company.decorator.PizzaExtraIngerdientsAdder;
 import com.company.factories.BasePizzaFactory;
 import com.company.factories.PizzaFactory;
+import com.company.impl.PizzaOrderFacadeImpl;
 import com.company.products.Pizza;
+import com.controllers.OrderController;
 
 public class Main {
 
@@ -13,8 +14,11 @@ public class Main {
         //Factory method to create pizza objects without specifying the exact pizza class to create
         BasePizzaFactory basePizzaFactory = new PizzaFactory();
         Pizza pizza = basePizzaFactory.createPizza("cheese");
-        //Decorator to dynamically extend pizzas objects behaviour during the run time without changing the object itself
-        PizzaExtraIngerdientsAdder pizzaExtraIngerdientsAdder = new ExtraCheese(pizza);
-        System.out.println("Ingredients: " + pizzaExtraIngerdientsAdder.addIngredients() + " , new order total: " + pizzaExtraIngerdientsAdder.increasePizzaPrice() + "$");
+
+        //Facade for encapsulating a more complex subsystem, decorator pattern in facades implementation
+        OrderController orderController = new OrderController();
+        orderController.setPizzaOrderFacade(new PizzaOrderFacadeImpl());
+        orderController.orderPizza(pizza, new ExtraCheese(pizza));
+
     }
 }
