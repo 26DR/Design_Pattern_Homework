@@ -1,16 +1,16 @@
 package com.company.state;
 
-import com.company.products.Pizza;
+import com.company.products.PizzaOrder;
 
 public class OrderInDeliveryState implements OrderState {
     @Override
-    public void next(Pizza pizza) {
-        pizza.setState(new OrderReceivedState());
+    public void next(PizzaOrder pizzaOrder) {
+        pizzaOrder.setState(new OrderReceivedState());
     }
 
     @Override
-    public void prev(Pizza pizza) {
-        pizza.setState(new OrderMadeState());
+    public void prev(PizzaOrder pizzaOrder) {
+        pizzaOrder.setState(new OrderMadeState());
     }
 
     @Override

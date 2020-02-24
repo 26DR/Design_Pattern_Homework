@@ -1,10 +1,10 @@
 package com.company.services;
 
-import com.company.products.Pizza;
+import com.company.products.PizzaOrder;
 
 public class DeliveryService {
-    public void deliverOrder(Pizza pizza){
+    public void deliverOrder(PizzaOrder pizzaOrder){
         //Pizza is being delivered
-        pizza.nextState();
-    }
+        pizzaOrder.nextState();
+  }
 }

@@ -1,8 +1,8 @@
 package com.company.facade;
 
-import com.company.decorator.PizzaExtraIngerdientsAdder;
-import com.company.products.Pizza;
+import com.company.decorator.PizzaOrderExtraIngerdientsAdder;
+import com.company.products.PizzaOrder;
 
 public interface PizzaOrderFacade {
-    boolean placeOrder(Pizza pizza, PizzaExtraIngerdientsAdder pizzaExtraIngerdientsAdder);
+    boolean placeOrder(PizzaOrder pizzaOrder, PizzaOrderExtraIngerdientsAdder pizzaExtraIngerdientsAdder);
 }

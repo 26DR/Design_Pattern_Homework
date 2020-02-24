@@ -1,9 +1,8 @@
 package com.company.products;
 
-public class CheesePizza extends Pizza{
+public class PepperoniPizzaOrder extends PizzaOrder {
 
-
-    public CheesePizza(String nameOfThePizza, double priceOfThePizza, String ingredients) {
+    public PepperoniPizzaOrder(String nameOfThePizza, double priceOfThePizza, String ingredients) {
         super(nameOfThePizza, priceOfThePizza, ingredients);
     }
 

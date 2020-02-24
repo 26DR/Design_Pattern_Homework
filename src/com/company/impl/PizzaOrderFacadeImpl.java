@@ -1,8 +1,8 @@
 package com.company.impl;
 
-import com.company.decorator.PizzaExtraIngerdientsAdder;
+import com.company.decorator.PizzaOrderExtraIngerdientsAdder;
 import com.company.facade.PizzaOrderFacade;
-import com.company.products.Pizza;
+import com.company.products.PizzaOrder;
 import com.company.services.DeliveryService;
 import com.company.services.PaymentService;
 
@@ -10,7 +10,7 @@ public class PizzaOrderFacadeImpl implements PizzaOrderFacade {
 
 
     @Override
-    public boolean placeOrder(Pizza pizza, PizzaExtraIngerdientsAdder pizzaExtraIngerdientsAdder) {
+    public boolean placeOrder(PizzaOrder pizzaOrder, PizzaOrderExtraIngerdientsAdder pizzaExtraIngerdientsAdder) {
 
         boolean orderCompleted = false;
 
@@ -19,11 +19,11 @@ public class PizzaOrderFacadeImpl implements PizzaOrderFacade {
         boolean paymentConfirmed = PaymentService.makePayment(pizzaExtraIngerdientsAdder.increasePizzaPrice());
 
         if (paymentConfirmed) {
+            pizzaOrder.printCurrentStateStatus();
             //Pizza is ready for delivery
-            pizza.nextState();
+            pizzaOrder.nextState();
             DeliveryService deliveryService = new DeliveryService();
-            deliveryService.deliverOrder(pizza);
-            System.out.println("Pizza delivery started");
+            deliveryService.deliverOrder(pizzaOrder);
             orderCompleted = true;
         }
 

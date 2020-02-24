@@ -1,21 +1,21 @@
 package com.company.decorator;
 
-import com.company.products.Pizza;
+import com.company.products.PizzaOrder;
 
-public class ExtraCheese extends PizzaExtraIngerdientsAdder {
+public class ExtraCheese extends PizzaOrderExtraIngerdientsAdder {
 
-    private Pizza pizza;
+    private PizzaOrder pizzaOrder;
 
-    public ExtraCheese(Pizza pizza) {
-        this.pizza = pizza;
+    public ExtraCheese(PizzaOrder pizzaOrder) {
+        this.pizzaOrder = pizzaOrder;
     }
 
     @Override
     public String addIngredients() {
-        return pizza.getIngredients() + " with extra cheese";
+        return pizzaOrder.getIngredients() + " with extra cheese";
     }
 
     public double increasePizzaPrice(){
-        return pizza.getPriceOfThePizza() + 0.99;
+        return pizzaOrder.getPriceOfThePizza() + 0.99;
     }
 }

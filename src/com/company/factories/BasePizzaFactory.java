@@ -1,8 +1,8 @@
 package com.company.factories;
 
-import com.company.products.Pizza;
+import com.company.products.PizzaOrder;
 
 public abstract class BasePizzaFactory {
 
-    public abstract Pizza createPizza(String pizzaType);
+    public abstract PizzaOrder createPizza(String pizzaType);
 }

@@ -1,17 +1,16 @@
 package com.controllers;
 
-import com.company.decorator.PizzaExtraIngerdientsAdder;
+import com.company.decorator.PizzaOrderExtraIngerdientsAdder;
 import com.company.facade.PizzaOrderFacade;
-import com.company.products.Pizza;
+import com.company.products.PizzaOrder;
 
 public class OrderController {
 
     private PizzaOrderFacade pizzaOrderFacade;
     private boolean orderCompleted;
 
-    public void orderPizza(Pizza pizzaToOrder, PizzaExtraIngerdientsAdder pizzaExtraIngerdientsAdder){
-        orderCompleted = pizzaOrderFacade.placeOrder(pizzaToOrder, pizzaExtraIngerdientsAdder);
-        System.out.println("Pizza order done");
+    public void orderPizza(PizzaOrder pizzaOrderToOrder, PizzaOrderExtraIngerdientsAdder pizzaExtraIngerdientsAdder){
+        orderCompleted = pizzaOrderFacade.placeOrder(pizzaOrderToOrder, pizzaExtraIngerdientsAdder);
     }
 
     public void setPizzaOrderFacade(PizzaOrderFacade pizzaOrderFacade) {
