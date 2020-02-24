@@ -19,6 +19,8 @@ public class PizzaOrderFacadeImpl implements PizzaOrderFacade {
         boolean paymentConfirmed = PaymentService.makePayment(pizzaExtraIngerdientsAdder.increasePizzaPrice());
 
         if (paymentConfirmed) {
+            //Pizza is ready for delivery
+            pizza.nextState();
             DeliveryService deliveryService = new DeliveryService();
             deliveryService.deliverOrder(pizza);
             System.out.println("Pizza delivery started");

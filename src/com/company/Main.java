@@ -11,14 +11,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //Factory method to create pizza objects without specifying the exact pizza class to create
         BasePizzaFactory basePizzaFactory = new PizzaFactory();
+        OrderController orderController = new OrderController();
+
+        //Factory method to create pizza objects without specifying the exact pizza class to create
         Pizza pizza = basePizzaFactory.createPizza("cheese");
 
         //Facade for encapsulating a more complex subsystem, decorator pattern in facades implementation
-        OrderController orderController = new OrderController();
         orderController.setPizzaOrderFacade(new PizzaOrderFacadeImpl());
         orderController.orderPizza(pizza, new ExtraCheese(pizza));
+
+        //Prints final state of pizza delivery after it has been done (state design pattern)
+        pizza.printCurrentStateStatus();
 
     }
 }

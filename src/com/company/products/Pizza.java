@@ -1,10 +1,19 @@
 package com.company.products;
 
+import com.company.state.OrderMadeState;
+import com.company.state.OrderState;
+
 public abstract class Pizza {
 
     private String nameOfThePizza;
     private double priceOfThePizza;
     private String ingredients;
+
+    public void setState(OrderState state) {
+        this.state = state;
+    }
+
+    private OrderState state = new OrderMadeState();
 
     public Pizza() {
     }
@@ -40,5 +49,17 @@ public abstract class Pizza {
     }
 
     public abstract String addIngredients();
+
+    public void previousState() {
+        state.prev(this);
+    }
+
+    public void nextState() {
+        state.next(this);
+    }
+
+    public void printCurrentStateStatus() {
+        state.printStateStatus();
+    }
 
 }
